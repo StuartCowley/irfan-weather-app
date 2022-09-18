@@ -6,6 +6,7 @@ import LocationDetails from "./LocationDetails";
 
 function App({ location }) {
   const { city, country } = location;
+
   return (
     <div className="App">
       <LocationDetails city={city} country={country} />
@@ -17,6 +18,16 @@ App.propTypes = {
   location: PropTypes.shape({
     city: PropTypes.string,
     country: PropTypes.string,
+  }).isRequired,
+  // do we need //
+  forecasts: PropTypes.shape({
+    date: PropTypes.number.isRequired,
+    description: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired,
+    temperature: PropTypes.shape({
+      min: PropTypes.number,
+      max: PropTypes.number,
+    }),
   }).isRequired,
 };
 
