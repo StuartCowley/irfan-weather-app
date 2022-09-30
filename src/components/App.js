@@ -15,10 +15,17 @@ function App({ location, forecasts }) {
   );
   const { city, country } = location;
 
+  const handleForecastSelect = (date) => {
+    setSelectedDate(date);
+  };
+
   return (
     <div className="weather-app">
       <LocationDetails city={city} country={country} />
-      <ForecastSummaries forecasts={forecasts} />
+      <ForecastSummaries
+        forecasts={forecasts}
+        onForecastSelect={handleForecastSelect}
+      />
       <ForecastDetails forecast={selectedForecast} />
       {/* <ForecastSummary forecast={forecasts[0]} /> */}
     </div>
